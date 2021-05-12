@@ -11,3 +11,11 @@ def cria_baralho():
         d = i+'♣'
         cartas.append(d)
     return cartas
+
+def extrai_naipe(carta):
+    naipes = ['♦', '♥', '♠', '♣']
+    for i in naipes:
+        if i in carta:
+            return i
+        
+        
