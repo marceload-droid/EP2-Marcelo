@@ -17,5 +17,10 @@ def extrai_naipe(carta):
     for i in naipes:
         if i in carta:
             return i
-        
+ 
+def extrai_valor(carta):
+    valor = ['A', 'K', 'Q', 'J', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    for i in valor:
+        if i in carta:
+            return i
         
