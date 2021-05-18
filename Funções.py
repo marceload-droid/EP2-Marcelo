@@ -58,6 +58,12 @@ def lista_movimentos_possiveis(baralho, index):
             movimentos.append(3)
 
         return movimentos
+
+def empilha(baralho, inicio, final):
+    baralho[final] = baralho[inicio]
+    del(baralho[inicio])
+    return baralho
+
     
 def possui_movimentos_possiveis(baralho):
     uf = False
@@ -67,7 +73,3 @@ def possui_movimentos_possiveis(baralho):
             uf = True
         indice += 1
     return uf
-def empilha(baralho, inicio, final):
-    baralho[final] = baralho[inicio]
-    del(baralho[inicio])
-    return baralho
