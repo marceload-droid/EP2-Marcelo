@@ -35,6 +35,15 @@ def lista_movimentos_possiveis(baralho, index):
     naipe_anterior = extrai_naipe(baralho[index - 1])
     
 def possui_movimentos_possiveis(baralho):
+    p1 = False
+    indice = 0
+    for m in baralho:
+        if lista_movimentos_possiveis(baralho, indice) != []:
+            p1 = True
+        indice += 1
+    return p1
+    
+def possui_movimentos_possiveis(baralho):
     m1 = []
     for cartas in baralho:
         m2 = lista_movimentos_possiveis(baralho, baralho.index(cartas))
