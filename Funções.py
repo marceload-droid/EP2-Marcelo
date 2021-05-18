@@ -25,65 +25,48 @@ def extrai_valor(carta):
             return i
         
 def lista_movimentos_possiveis(baralho, index):
-    from extrai_naipe import extrai_naipe
-    from extrai_valor import extrai_valor
-    carta_selecionada = baralho[index]  
-    valordacarta = extrai_valor(carta_selecionada)
-    valor_anterior = extrai_valor(baralho[index - 1])
-    valor_mais_que_anterior = extrai_valor(baralho[index - 3])
-    naipe_carta = extrai_naipe(carta_selecionada)
-    naipe_anterior = extrai_naipe(baralho[index - 1])
-    
-def possui_movimentos_possiveis(baralho):
-    p1 = False
-    indice = 0
-    for m in baralho:
-        if lista_movimentos_possiveis(baralho, indice) != []:
-            p1 = True
-        indice += 1
-    return p1
-    
-def possui_movimentos_possiveis(baralho):
-    m1 = []
-    for cartas in baralho:
-        m2 = lista_movimentos_possiveis(baralho, baralho.index(cartas))
-        m1.append(m2)
-    
-    for c in movimentos:
-        if len(c) > 0:
-            return True
-    else: 
-        return False
-    l = possui_movimentos_possiveis(['A♦', '10♥', 'Q♣', '4♠'])
-return l
-    naipe_mais_que_anterior = extrai_naipe(baralho[index - 3])
+    from extrai_naipe import extrai_naipe as ex_np
+    from extrai_valor import extrai_valor as ex_val
+    c_sel = baralho[index] 
+    valor = extrai_valor(carta)
+    valoranterior = extrai_valor(baralho[i - 1])
+    valormaisqueanterior = extrai_valor(baralho[i - 3])
+    naipe = extrai_naipe(carta)
+    naipeanterior = extrai_naipe(baralho[i - 1])
+    naipemaisqueanterior = extrai_naipe(baralho[i - 3])
 
-    if index == 0:
-        return []
-
-    elif index <= 2:
-        if valordacarta == valor_anterior:
+    if i == 0:
+	return[0]
+    elif i <= 2: 
+        if valor == valoranterior:
             return [1]
-        elif naipe_carta == naipe_anterior:
+        elif naipe == naipeanterior:
             return [1]
         else:
             return []
 
-
-    elif index > 2:
-        possiveis_mov = []
-        if valordacarta == valor_mais_que_anterior:
-            possiveis_mov.append(3)
-        elif naipe_carta == naipe_mais_que_anterior:
-            possiveis_mov.append(3)
+    elif i > 2:
+        movimentos = []
+        if valor == valoranterior:
+            movimentos.append(1)
+        elif naipe == naipeanterior:
+            movimentos.append(1)
         
-        if valordacarta == valor_anterior:
-            possiveis_mov(1)
-        elif naipe_carta == naipe_anterior:
-            possiveis_mov(1)
+        if valor == valormaisqueanterior:
+            movimentos.append(3)
+        elif naipe == naipemaisqueanterior:
+            movimentos.append(3)
 
-            return possiveis_mov
-        
+        return movimentos
+    
+def possui_movimentos_possiveis(baralho):
+    uf = False
+    i = 0
+    for movimentos in baralho:
+        if lista_movimentos_possiveis(baralho, i) != []:
+            uf = True
+        indice += 1
+    return uf
 def empilha(baralho, inicio, final):
     baralho[final] = baralho[inicio]
     del(baralho[inicio])
