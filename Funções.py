@@ -33,6 +33,11 @@ def lista_movimentos_possiveis(baralho, index):
     valor_mais_que_anterior = extrai_valor(baralho[index - 3])
     naipe_carta = extrai_naipe(carta_selecionada)
     naipe_anterior = extrai_naipe(baralho[index - 1])
+
+def empilha_cartas(baralho, inicio, final):
+    baralho[final] = baralho[inicio]
+    del(baralho[inicio])
+    return baralho
     naipe_mais_que_anterior = extrai_naipe(baralho[index - 3])
 
     if index == 0:
