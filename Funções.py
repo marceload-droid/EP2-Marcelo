@@ -33,6 +33,20 @@ def lista_movimentos_possiveis(baralho, index):
     valor_mais_que_anterior = extrai_valor(baralho[index - 3])
     naipe_carta = extrai_naipe(carta_selecionada)
     naipe_anterior = extrai_naipe(baralho[index - 1])
+    
+def possui_movimentos_possiveis(baralho):
+    m1 = []
+    for cartas in baralho:
+        m2 = lista_movimentos_possiveis(baralho, baralho.index(cartas))
+        m1.append(m2)
+    
+    for c in movimentos:
+        if len(c) > 0:
+            return True
+    else: 
+        return False
+    l = possui_movimentos_possiveis(['A♦', '10♥', 'Q♣', '4♠'])
+return l
     naipe_mais_que_anterior = extrai_naipe(baralho[index - 3])
 
     if index == 0:
