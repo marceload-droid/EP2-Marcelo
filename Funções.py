@@ -24,3 +24,39 @@ def extrai_valor(carta):
         if i in carta:
             return i
         
+def lista_movimentos_possiveis(baralho, index):
+    from extrai_naipe import extrai_naipe
+    from extrai_valor import extrai_valor
+    carta_selecionada = baralho[index]  
+    valordacarta = extrai_valor(carta_selecionada)
+    valor_anterior = extrai_valor(baralho[index - 1])
+    valor_mais_que_anterior = extrai_valor(baralho[index - 3])
+    naipe_carta = extrai_naipe(carta_selecionada)
+    naipe_anterior = extrai_naipe(baralho[index - 1])
+    naipe_mais_que_anterior = extrai_naipe(baralho[index - 3])
+
+    if index == 0:
+        return []
+
+    elif index <= 2:
+        if valordacarta == valor_anterior:
+            return [1]
+        elif naipe_carta == naipe_anterior:
+            return [1]
+        else:
+            return []
+
+
+    elif index > 2:
+        possiveis_mov = []
+        if valordacarta == valor_mais_que_anterior:
+            possiveis_mov.append(3)
+        elif naipe_carta == naipe_mais_que_anterior:
+            possiveis_mov.append(3)
+        
+        if valordacarta == valor_anterior:
+            possiveis_mov(1)
+        elif naipe_carta == naipe_anterior:
+            possiveis_mov(1)
+
+            return possiveis_mov
